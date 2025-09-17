@@ -222,3 +222,48 @@ html, body { overflow-x: hidden; }  /* yatay taşmayı kes */
   .marquee{ overflow: hidden; }
   .marquee span{ will-change: transform; }
 }
+/* === MOBİL HERO TAM DÜZELTME === */
+@media (max-width:640px){
+
+  /* Hero ve içindeki her katmanda kaymayı kes */
+  #hero, #hero .container, .hero-inner, .marquee{
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* GIF tam ortada ve güvenli genişlikte kalsın */
+  .hero-gif{
+    display:block;
+    width:min(360px, 92%);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* Kayan yazı: elemanın kendisi genişlemeye sebep olmasın */
+  .marquee{
+    white-space: nowrap;
+  }
+  .marquee span{
+    display:inline-block;
+    /* içerik genişliğine göre animasyon, padding yok */
+    will-change: transform;
+  }
+
+  /* CTA butonlarını flex yapıp ortala + satır kaydır */
+  .hero-cta{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;        /* sığmazsa alta geçsin */
+    margin-top:10px;
+    max-width:100%;
+  }
+  .hero-cta .btn{
+    white-space:nowrap;     /* metin kırılmasın */
+    max-width:100%;
+  }
+
+  /* Güvenlik için kökte yatay taşmayı kapalı tut */
+  html, body{ overflow-x:hidden; }
+}
