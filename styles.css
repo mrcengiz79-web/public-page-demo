@@ -193,3 +193,32 @@ body.no-scroll{ overflow:hidden; }
   .menu-toggle{display:inline-block}
   .site-title{ display:none; } /* mobilde başlığı gizle */
 }
+/* === MOBİL DÜZELTME BLOĞU === */
+html, body { overflow-x: hidden; }  /* yatay taşmayı kes */
+
+@media (max-width: 640px){
+  /* Logo: mobilde taşmasın, barı genişletmesin */
+  .brand img{
+    transform: none;   /* scale(1.25)'i kapat */
+    height: 42px;      /* istersen 40–46px arası deneyebilirsin */
+  }
+
+  /* Menü açılırken genişlik taşmasın */
+  .menu{
+    max-width: 92vw;        /* güvenli genişlik */
+    right: 4%;
+    left: auto;
+  }
+
+  /* GIF merkezde dursun, çok büyümesin */
+  .hero-gif{
+    width: min(420px, 92%); /* gerekiyorsa 360px yap */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  /* Marquee zaten overflow:hidden ama garantileyelim */
+  .marquee{ overflow: hidden; }
+  .marquee span{ will-change: transform; }
+}
